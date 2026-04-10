@@ -39,6 +39,7 @@ A fully functional Google Keep clone built with React and Vite. Designed to clos
 
 ## Project Structure
 
+```
 src/
 ├── components/
 │   ├── layout/
@@ -85,6 +86,7 @@ src/
 │
 ├── App.jsx
 └── main.jsx
+```
 
 ---
 
