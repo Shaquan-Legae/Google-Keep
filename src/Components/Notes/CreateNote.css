@@ -34,7 +34,7 @@
     resize: none;
     padding: 8px 16px;
     font-size: 14px;
-    min-height: 80px;
+    min-height: 10px;
   }
   
   /* TOOLBAR */
@@ -42,7 +42,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 8px 8px 12px;
+    padding: -2px 8px 8px 12px;
   }
   
   /* ICON GROUP */
@@ -77,36 +77,36 @@
   
   /* COLOR PICKER */
   .palette-container {
-    position: relative;
-    display: inline-flex;
+  position: relative;
+  display: inline-flex;
+}
+
+/* Floating popover */
+.color-picker-popover {
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+
+  z-index: 50;
+
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 6px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+  animation: fadeIn 0.15s ease;
+}
+
+/* smooth appearance */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
-  
-  /* Floating popover */
-  .color-picker-popover {
-    position: absolute;
-    bottom: 36px;
-    left: 0;
-  
-    z-index: 50;
-  
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 6px;
-  
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  
-    animation: fadeIn 0.15s ease;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* smooth appearance */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(6px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+}
