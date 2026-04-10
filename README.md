@@ -1,23 +1,107 @@
-<<<<<<< HEAD
-# Google-Keep
-A lightweight Google Keep–inspired note app built with React. Users can create, edit, and delete notes through a clean, responsive interface. It showcases component-based design, React hooks, and real-time state updates, focusing on simplicity, usability, and solid frontend development practices.
-=======
-# React + Vite
+# Google Keep Clone — React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully functional Google Keep clone built with React and Vite. Designed to closely replicate the original Google Keep UI and feature set, including note management, sidebar navigation, search, dark mode, and reminders.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+### Core
+- Create notes with title and body
+- Edit notes via modal
+- Delete notes (moves to Trash)
+- Archive and unarchive notes
+- Masonry-style grid layout
+- Responsive design
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### Navigation
+- Collapsible sidebar
+- Notes / Archive / Trash views
+- Dynamic view-based UI
 
-Note: This will impact Vite dev & build performances.
+### State & Storage
+- Context API + useReducer
+- LocalStorage persistence
+- Modular hook-based logic
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> 2dc67a2 (Clean initial setup of Google Keep clone with refactored UI structure)
+## Tech Stack
+
+- React 18 (Vite)
+- Context API
+- useReducer
+- CSS (custom)
+- Material Icons
+- UUID
+
+---
+
+## Project Structure
+
+src/
+├── components/
+│   ├── layout/
+│   │   ├── Header.jsx
+│   │   └── Sidebar.jsx
+│   │
+│   ├── Notes/
+│   │   ├── CreateNote.jsx
+│   │   ├── EditModal.jsx
+│   │   ├── NoteCard.jsx
+│   │   └── NotesGrid.jsx
+│   │
+│   ├── ui/
+│   │   ├── ColorPicker.jsx
+│   │   └── IconButton.jsx
+│
+├── hooks/
+│   ├── useLocalStorage.js
+│   ├── useNotes.js
+│   └── useOutsideClick.js
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Archive.jsx
+│   └── Trash.jsx
+│
+├── state/
+│   ├── NotesContext.jsx
+│   └── notesReducer.js
+│
+├── styles/
+│   └── global.css
+│
+├── utils/
+│   ├── constants.js
+│   └── helpers.js
+│
+├── assets/
+│   ├── icons/
+│   │   └── CheckIcon.jsx
+│   └── images/
+│       ├── favicon.svg
+│       └── google-keep-logo.png
+│
+├── App.jsx
+└── main.jsx
+
+---
+
+## Getting Started
+
+npm install
+npm run dev
+
+---
+
+## Build
+
+npm run build
+npm run preview
+
+---
+
+## Author
+
+Shaquan
