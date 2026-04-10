@@ -1,0 +1,112 @@
+/* CONTAINER */
+.create-note {
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.2);
+    padding: 0;
+  }
+  
+  /* EXPANDED LAYOUT */
+  .create-expanded {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* HEADER */
+  .create-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px 0 16px;
+  }
+  
+  /* TITLE INPUT */
+  .title-input {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  /* TEXTAREA */
+  .note-textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 80px;
+  }
+  
+  /* TOOLBAR */
+  .create-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8px 8px 12px;
+  }
+  
+  /* ICON GROUP */
+  .create-actions-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  /* CLOSE BUTTON */
+  .save-btn {
+    background: transparent;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+  
+  .save-btn:hover {
+    background: #f1f3f4;
+  }
+  
+  /* PIN */
+  .pin-btn {
+    opacity: 0.7;
+  }
+  
+  .pin-btn:hover {
+    opacity: 1;
+  }
+  
+  /* COLOR PICKER */
+  .palette-container {
+    position: relative;
+    display: inline-flex;
+  }
+  
+  /* Floating popover */
+  .color-picker-popover {
+    position: absolute;
+    bottom: 36px;
+    left: 0;
+  
+    z-index: 50;
+  
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 6px;
+  
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  
+    animation: fadeIn 0.15s ease;
+  }
+  
+  /* smooth appearance */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

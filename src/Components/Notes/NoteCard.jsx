@@ -1,5 +1,5 @@
 import ArchiveOutlinedIcon from "@mui/icons-material/ArchiveOutlined";
-import CheckCircleOutlineOutlinedIcon from "@mui/icons-material/CheckCircleOutlineOutlined";
+import checkIcon from "../../assets/icons/CheckIcon.svg";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
@@ -14,8 +14,14 @@ import useNotes from "../../hooks/useNotes";
 import { NOTE_VIEWS } from "../../utils/constants";
 import ColorPicker from "../ui/ColorPicker";
 import IconButton from "../ui/IconButton";
+import "./NoteCard.css";
 
-export default function NoteCard({ note, view, onEdit, isDragging = false }) {
+export default function NoteCard({
+  note,
+  view,
+  onEdit,
+  isDragging = false,
+}) {
   const {
     deleteNote,
     moveToTrash,
@@ -24,14 +30,13 @@ export default function NoteCard({ note, view, onEdit, isDragging = false }) {
     togglePin,
     updateNote,
   } = useNotes();
+
   const [showColorPicker, setShowColorPicker] = useState(false);
 
   const isTrashView = view === NOTE_VIEWS.TRASH;
 
   const handleCardClick = () => {
-    if (isTrashView) {
-      return;
-    }
+    if (isTrashView) return;
     onEdit(note.id);
   };
 
@@ -84,6 +89,7 @@ export default function NoteCard({ note, view, onEdit, isDragging = false }) {
         }
       }}
     >
+      {/* SELECT CHECK */}
       <button
         type="button"
         className="note-select-btn"
@@ -91,9 +97,10 @@ export default function NoteCard({ note, view, onEdit, isDragging = false }) {
         onClick={stopEvent}
         tabIndex={-1}
       >
-        <CheckCircleOutlineOutlinedIcon fontSize="small" />
+        <img src={checkIcon} alt="Select note" className="check-icon" />
       </button>
 
+      {/* HEADER */}
       <div className="note-header">
         <h3>{note.title || ""}</h3>
 
@@ -113,14 +120,17 @@ export default function NoteCard({ note, view, onEdit, isDragging = false }) {
         )}
       </div>
 
+      {/* CONTENT */}
       {note.content && <p className="note-content">{note.content}</p>}
 
+      {/* ACTIONS */}
       <div className="note-actions" onClick={stopEvent} role="presentation">
         {isTrashView ? (
           <>
             <IconButton label="Restore note" onClick={handleRestore}>
               <RestoreFromTrashOutlinedIcon fontSize="small" />
             </IconButton>
+
             <IconButton label="Delete forever" onClick={handleDeleteForever}>
               <DeleteForeverOutlinedIcon fontSize="small" />
             </IconButton>
@@ -129,11 +139,15 @@ export default function NoteCard({ note, view, onEdit, isDragging = false }) {
           <>
             <IconButton
               label="Background options"
-              onClick={() => setShowColorPicker((previous) => !previous)}
               active={showColorPicker}
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowColorPicker((prev) => !prev);
+              }}
             >
               <PaletteOutlinedIcon fontSize="small" />
             </IconButton>
+
             <IconButton
               label={note.isArchived ? "Unarchive note" : "Archive note"}
               onClick={handleArchiveToggle}
@@ -144,12 +158,15 @@ export default function NoteCard({ note, view, onEdit, isDragging = false }) {
                 <ArchiveOutlinedIcon fontSize="small" />
               )}
             </IconButton>
+
             <IconButton label="Move to trash" onClick={handleMoveToTrash}>
               <DeleteOutlineOutlinedIcon fontSize="small" />
             </IconButton>
+
             <IconButton label="Edit note" onClick={() => onEdit(note.id)}>
               <EditOutlinedIcon fontSize="small" />
             </IconButton>
+
             <IconButton label="More options">
               <MoreVertOutlinedIcon fontSize="small" />
             </IconButton>
@@ -157,8 +174,14 @@ export default function NoteCard({ note, view, onEdit, isDragging = false }) {
         )}
       </div>
 
+      {/* COLOR PICKER (ANCHOR POSITIONED) */}
       {showColorPicker && (
-        <ColorPicker selectedColor={note.color} onChange={handleColorChange} />
+        <div className="color-picker-wrapper">
+          <ColorPicker
+            selectedColor={note.color}
+            onChange={handleColorChange}
+          />
+        </div>
       )}
     </article>
   );
