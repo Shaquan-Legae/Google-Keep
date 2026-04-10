@@ -1,6 +1,6 @@
 # Google Keep Clone — React
 
-A fully functional Google Keep clone built with React and Vite. Designed to closely replicate the original Google Keep UI and feature set, including note management, sidebar navigation, search, dark mode, and reminders.
+A fully functional Google Keep clone built with React and Vite. Designed to closely replicate the original Google Keep UI and feature set, including note management, sidebar navigation, and search functionality.
 
 ---
 
